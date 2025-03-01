@@ -1,0 +1,776 @@
+@charset "UTF-8";
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers
+ */
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/*
+* Aquí empieza el proyecto
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 768px) {
+  header ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 20px;
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .quien__somos {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quien__somos .img__somos img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .text__somos h1 {
+    font-size: 2rem;
+  }
+
+  .text__somos h2 {
+    font-size: 1.5rem;
+  }
+
+  .pruebas {
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+    border-radius: none;
+  }
+
+  .pruebas__title,
+  .pruebas__subtitle {
+    text-align: center;
+  }
+
+
+  .contacto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacto .contacta__con__nosotros h1 {
+    text-align: center;
+  }
+
+  .contacta__con__nosotros,
+  .email {
+    width: 100%;
+    text-align: center;
+  }
+
+  .telefonos {
+    width: 100%;
+    text-align: left;
+  }
+
+  .redes__sociales .icon__redes img {
+    width: 50px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Estilos específicos para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+
+  .text__somos h1 {
+    font-size: 2.5rem;
+  }
+
+  .text__somos h2 {
+    font-size: 2rem;
+  }
+
+  .pruebas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacta__con__nosotros,
+  .email {
+    width: 100%;
+    text-align: center;
+  }
+
+  .telefonos {
+    width: 100%;
+    text-align: center;
+  }
+
+  .redes__sociales img {
+    width: 120px;
+  }
+}
+
+/* 🔹 Contenedor que agrupa el header y hero */
+.header-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa todo el viewport */
+  overflow: hidden;
+}
+
+/* 🔹 Video de fondo que cubre todo */
+#heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video llene el área */
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Envía el video al fondo */
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .header-hero-container {
+    height: 50vh; /* Ajusta la altura para dispositivos móviles */
+  }
+
+  #heroVideo {
+    object-fit: cover; /* Ajusta el video para que se contenga dentro del contenedor */
+  }
+}
+
+/* Media queries para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-hero-container {
+    height: 75vh; /* Ajusta la altura para tablets */
+  }
+
+  #heroVideo {
+    object-fit: cover; /* Mantén el video cubriendo todo el contenedor */
+  }
+}
+
+/* 🔹 Estilos del header */
+header {
+  position: sticky; /* Mantiene el contenido sobre el video */
+  top: 0;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  z-index: 3; /* Asegura que el header quede por encima del video */
+  background: rgba(0, 0, 0, 0.3); /* Agrega transparencia */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  transition: all 0.5s ease;
+  transform: translateY(0); /* Posición inicial */
+}
+
+
+
+header.hidden {
+  transform: translateY(-100%); /* Oculta el header */
+  transition: all 0.5s ease;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+}
+
+header ul a {
+  color: #efefef;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: all 0.3s ease;
+}
+
+header ul a:hover {
+  padding-left: 10px;
+  background: rgba(242, 240, 240, 0.3); /* Agrega transparencia */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  color: #222;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #000;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+
+  .nav {
+    display: flex;
+    justify-content: flex-end; /* Alinea el menú a la derecha */
+    width: 100%;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    background:#3D8DB7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, top 0.5s ease-out;
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+
+  .nav ul li {
+    margin-right: 20px;
+    margin-bottom: 0; /* Agrega margen a la derecha de los enlaces */
+  }
+
+  .nav ul li a {
+    font-size: 18px;
+    font-weight: 600; /* Ajusta el tamaño de la fuente de los enlaces */
+    display: block;
+    text-align: right;
+    padding: 0; /* Ajusta el padding para pegar los enlaces */
+  }
+
+
+  .nav ul.active {
+    max-height: 300px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+
+
+.logo {
+  width: 100px;
+  height: 80px;
+}
+
+
+/* 🔹 Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - -490px); /* Ajusta la altura si el header cambia */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5%;
+}
+
+/* 🔹 Contenido del hero */
+.hero__content {
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* 🔹 Fondo del texto para mayor legibilidad */
+.hero__header {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+}
+
+/* 🔹 Ajustes en el título */
+.hero h1 {
+  font-weight: 700;
+  font-size: 45px;
+  color: #313131;
+  margin: 0;
+  max-width: 500px;
+  position: relative;
+}
+
+.hero h1::before {
+  content: '';
+  height: 8px;
+  width: 72px;
+  position: absolute;
+  background-color: #3D8DB7;
+  right: -7px;
+  top: 32px;
+  box-shadow: 0px 4px 6px rgba(49, 49, 49, 0.3);
+}
+
+/* 🔹 Estilos para el texto */
+.hero p {
+  font-size: 25px;
+  font-weight: 300;
+  color: #585858;
+  max-width: 700px;
+}
+
+
+.quien__somos {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.img__somos img {
+  width: 600px;
+  margin-right: 40px;
+}
+
+.text__somos h1 {
+  color: #3D8DB7;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.text__somos h2 {
+  color: #5CE1E6;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.text__somos p {
+  line-height: 30px;
+  padding-bottom: 10px;
+  border-bottom: #000 1px solid;
+}
+.pruebas__title {
+  margin-top: 60px;
+  margin-bottom: 0px;
+  text-align: left;
+  color: #3D8DB7;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.pruebas__subtitle {
+  margin-bottom: 30px;
+  color: #5CE1E6;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.pruebas {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 60px;
+  border-radius: 20px;
+  padding: 20px;
+ 
+}
+
+.pruebas img {
+  border-radius: 20px;
+}
+
+.pruebas p {
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agregado text-shadow */
+}
+
+
+
+
+
+.contacto {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2), /* Sombra arriba */
+              0 5px 10px rgba(0, 0, 0, 0.2);  /* Sombra abajo */
+}
+
+.contacta__con__nosotros {
+  width: 400px;
+}
+
+.contacta__con__nosotros h1 {
+  color: #3D8DB7;
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: end;
+}
+
+.contacta__con__nosotros span {
+  font-weight: 700;
+  color: #5CE1E6;
+  font-size: 3rem;
+  text-align: end;
+}
+
+
+
+.telefonos h3 {
+  margin-bottom: 10px;
+}
+
+.telefonos p:first-of-type {
+ color: #3D8DB7;
+}
+
+.telf1 {
+  border-bottom: #3D8DB7 solid 1px;
+  margin-bottom: 20px;
+  padding-right: 100px;
+}
+
+.telf2 {
+  border-bottom: #3D8DB7 solid 1px;
+  margin-bottom: 20px;
+  padding-right: 100px;
+}
+
+.telf3 {
+  border-bottom: #3D8DB7 solid 1px;
+  margin-bottom: 20px;
+  padding-right: 100px;
+}
+
+.email {
+  width: 400px;
+}
+
+.email h3 {
+  margin-bottom: 10px;
+}
+
+.email span {
+  font-weight: 600;
+  color: #3D8DB7;
+}
+
+.redes__sociales {
+ text-align: center;
+}
+
+.redes__sociales img {
+  width: 150px;
+}
+
+footer {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding: 10px 5%;
+  z-index: 3; /* Asegura que el header quede por encima del video */
+  background: rgba(0, 0, 0, 0.3); /* Agrega transparencia */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  transition: all 0.3s ease;
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 768px) {
+  .pruebas {
+    box-shadow: none; /* Elimina el box-shadow en la versión móvil */
+  }
+}
+
+/* Estilos específicos para dispositivos de escritorio */
+@media (min-width: 769px) {
+  .pruebas {
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2), /* Sombra arriba */
+    0 5px 10px rgba(0, 0, 0, 0.2);  /* Sombra abajo */
+  }
+}
+
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+
+  scroll-snap-type: x mandatory;margin-bottom: 30px;
+
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+
+  scroll-snap-align: center;
+}
